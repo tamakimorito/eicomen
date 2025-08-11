@@ -1,11 +1,7 @@
-import React from 'react';
-import { BellIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
+import React from 'https://esm.sh/react@^19.1.0';
+import { BellIcon, QuestionMarkCircleIcon } from 'https://esm.sh/@heroicons/react@^2.2.0/24/solid';
 
-interface HeaderProps {
-    onManualOpen: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ onManualOpen }) => {
+const Header = ({ onManualOpen }) => {
   return (
     <header className="bg-blue-700 shadow-lg sticky top-0 z-20">
       <div className="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 text-white">
@@ -14,7 +10,7 @@ const Header: React.FC<HeaderProps> = ({ onManualOpen }) => {
             <BellIcon className="h-8 w-8 text-blue-800" />
             </div>
             <div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-wider">回線営業コメント作成ツール～エイコメン～</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-wider">営業コメント作成ツール～エイコメン～</h1>
             </div>
         </div>
         <button 
