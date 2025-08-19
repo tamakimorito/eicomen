@@ -49,6 +49,30 @@ export const INITIAL_FORM_DATA: FormData = {
   drawingSubmissionContact: '無',
   buildingSurveyRequest: '無',
 
+  // --- GMO Docomo Specific ---
+  gmoConstructionSplit: false,
+  gmoCompensation: '',
+  gmoRouter: '',
+  gmoIsDocomoOwnerSame: true,
+  gmoDocomoOwnerName: '',
+  gmoDocomoOwnerPhone: '',
+  gmoCallback1: '',
+  gmoCallback2: '',
+  gmoCallback3: '',
+  gmoCallbackDate1: '',
+  gmoCallbackDate2: '',
+  gmoCallbackDate3: '',
+  gmoNoPairIdType: '',
+  
+  // --- AU Hikari Specific ---
+  auPlanProvider: '',
+  auWifiRouter: '',
+  auOptions: '話してないです',
+  auSupport: '',
+  auCampaign: '2万円CB',
+  auContactType: '',
+  auPreCheckTime: '',
+
   // --- Electricity Specific ---
   elecProvider: '',
   elecRecordIdPrefix: 'それ以外',
@@ -70,6 +94,7 @@ export const INITIAL_FORM_DATA: FormData = {
   gasPreContact: '',
   gasOpeningTimeSlot: '',
   gasOpeningDate: '',
+  gasIsCorporate: false,
 
   // --- Common for Elec/Gas ---
   elecConfirmationTime: '順次',
@@ -82,9 +107,12 @@ export const INITIAL_FORM_DATA: FormData = {
 
   // --- WTS Specific ---
   wtsCustomerType: '通常',
-  wtsShippingDestination: '',
+  wtsShippingDestination: '新住所',
+  wtsShippingPostalCode: '',
+  wtsShippingAddress: '',
+  wtsServerType: '',
   wtsServerColor: '',
-  wtsFiveYearPlan: '',
+  wtsFiveYearPlan: '5年',
   wtsFreeWater: '',
   wtsCreditCard: '',
   wtsCarrier: '',
@@ -94,6 +122,7 @@ export const INITIAL_FORM_DATA: FormData = {
   wtsU20HighSchool: '',
   wtsU20ParentalConsent: '',
   wtsCorporateInvoice: '',
+  wtsEmail: '',
 };
 
 export const BUG_REPORT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcxDeiLBs1ViBpWx6NhTWtemiiiWLydybw0piSVbxZpodzSQh2ebzyF66MeFinqou7HA/exec';
@@ -105,6 +134,9 @@ export const PRODUCTS = [
     { type: 'break' },
     { value: '賃貸ねっと', label: '賃貸ねっと' },
     { value: '賃貸ねっと【無料施策】', label: '賃貸ねっと【無料施策】' },
+    { type: 'break' },
+    { value: 'GMOドコモ光', label: 'GMOドコモ光' },
+    { value: 'AUひかり', label: 'AUひかり' },
 ];
 
 export const HOUSING_TYPES_1G = [
@@ -130,6 +162,16 @@ export const HOUSING_TYPES_CHINTAI = [
 export const HOUSING_TYPES_CHINTAI_FREE = [
     {value: 'マンション', label: 'マンション'},
     {value: 'マンション10G', label: 'マンション10G'}
+];
+
+export const HOUSING_TYPES_GMO = [
+    { value: '1Gマンション', label: '1Gマンション' },
+    { value: '1Gファミリー', label: '1Gファミリー' },
+    { value: '10G', label: '10G' },
+    { type: 'break' },
+    { value: 'ペアなし1Gマンション', label: 'ペアなし1Gマンション' },
+    { value: 'ペアなし1Gファミリー', label: 'ペアなし1Gファミリー' },
+    { value: 'ペアなし10G', label: 'ペアなし10G' },
 ];
 
 export const RACK_OPTIONS_1G = [
@@ -212,6 +254,7 @@ export const DISCOUNT_OPTIONS_10G_NEW = [
 export const ROUTER_OPTIONS = [
     { value: '案内した', label: '案内した' },
     { value: '未案内', label: '未案内' },
+    { value: '持ってる', label: '持ってる' },
 ];
 
 export const PAYMENT_METHOD_OPTIONS = [
@@ -222,13 +265,49 @@ export const PAYMENT_METHOD_OPTIONS = [
 export const PAYMENT_METHOD_OPTIONS_EXTENDED = [
     { value: 'クレカ', label: 'クレカ' },
     { value: '口座', label: '口座' },
-    { value: '口座・クレジットカード', label: '口座・クレジットカード' },
 ];
 
 export const CROSS_PATH_ROUTER_OPTIONS = [
     { value: '4950円購入', label: '4950円購入' },
     { value: 'お客様で手配', label: 'お客様で手配' },
 ];
+
+// --- GMO Docomo Constants ---
+export const GMO_COMPENSATION_OPTIONS = [
+  { value: 'あり', label: 'あり' },
+  { value: 'なし', label: 'なし' },
+];
+
+export const GMO_ROUTER_OPTIONS = [
+  { value: '済', label: '済' },
+  { value: 'まだ', label: 'まだ' },
+  { value: '10G専用190円', label: '10G専用190円' },
+];
+
+export const GMO_NO_PAIR_ROUTER_OPTIONS = [
+  { value: '無料(クレカのみ)', label: '無料(クレカのみ)' },
+  { value: '不要', label: '不要' },
+  { value: '10G専用190円', label: '10G専用190円' },
+];
+
+export const GMO_NO_PAIR_ID_OPTIONS = [
+  { value: '免許', label: '免許' },
+  { value: 'マイナンバーカード', label: 'マイナンバーカード' },
+];
+
+export const GMO_CALLBACK_TIME_SLOTS = [
+  { value: '10-12', label: '10-12' },
+  { value: '12-14', label: '12-14' },
+  { value: '14-17', label: '14-17' },
+  { value: '17-19', label: '17-19' },
+];
+
+// --- AU Hikari Constants ---
+export const AU_CONTACT_TYPE_OPTIONS = [
+  { value: '携帯宛', label: '携帯宛' },
+  { value: '固定宛', label: '固定宛' },
+];
+
 
 // --- New Elec/Gas Constants ---
 
@@ -328,6 +407,8 @@ export const GAS_OPENING_TIME_SLOTS = [
 
 export const TIME_SLOTS_SUTENE_SR = [
     { value: '9-12', label: '9-12' },
+    { value: '13-15', label: '13-15' },
+    { value: '15-17', label: '15-17' },
     { value: '13-17', label: '午後枠 (13-17)' },
 ];
 
@@ -344,18 +425,19 @@ export const WTS_CUSTOMER_TYPES = [
 ];
 
 export const WTS_SHIPPING_DESTINATIONS = [
-    { value: '設置先', label: '設置先' },
-    { value: '新住所', label: '新住所' },
+    { value: '新住所', label: '新住所 (設置先と同じ)' },
+    { value: 'その他', label: 'その他' },
 ];
 
 export const WTS_FIVE_YEAR_PLAN_OPTIONS = [
-    { value: '話した', label: '話した' },
-    { value: '話してない', label: '話してない' },
+    { value: '5年', label: '5年' },
+    { value: '3年', label: '3年' },
 ];
 
-export const WTS_CREDIT_CARD_OPTIONS = [
+export const WTS_FREE_WATER_OPTIONS = [
     { value: 'あり', label: 'あり' },
     { value: 'なし', label: 'なし' },
+    { value: 'クレカの場合無料水あり', label: 'クレカの場合無料水あり' },
 ];
 
 export const WTS_WATER_PURIFIER_OPTIONS = [
@@ -377,4 +459,68 @@ export const WTS_U20_PARENTAL_CONSENT_OPTIONS = [
     { value: 'OK', label: 'OK' },
     { value: 'NG', label: 'NG' },
     { value: 'きいてない', label: 'きいてない' },
+];
+
+export const WTS_SERVERS = [
+    { value: 'fam2', label: 'fam2' },
+    { value: 'スリム4ロング', label: 'スリム4ロング' },
+    { value: 'スリム4ショート', label: 'スリム4ショート' },
+    { value: 'ロッカスマート', label: 'ロッカスマート' },
+    { value: 'リッタ', label: 'リッタ' },
+    { value: 'スリムR2', label: 'スリムR2' },
+    { value: 'AURA', label: 'AURA' },
+    { value: 'amadana', label: 'amadana' },
+];
+
+export const WTS_COLORS = {
+    fam2: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+    ],
+    スリム4ロング: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+        { value: 'トープ', label: 'トープ' },
+        { value: 'グレー', label: 'グレー' },
+    ],
+    スリム4ショート: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+        { value: 'トープ', label: 'トープ' },
+        { value: 'グレー', label: 'グレー' },
+    ],
+    ロッカスマート: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+    ],
+    リッタ: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+    ],
+    スリムR2: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+    ],
+    AURA: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+        { value: 'ブルーブラック', label: 'ブルーブラック' },
+        { value: 'メタリック', label: 'メタリック' },
+    ],
+    amadana: [
+        { value: 'ホワイト', label: 'ホワイト' },
+        { value: 'ブラック', label: 'ブラック' },
+        { value: 'ブラウン', label: 'ブラウン' },
+    ],
+};
+
+export const WTS_CARRIER_OPTIONS = [
+    { value: 'AU', label: 'AU' },
+    { value: 'SB', label: 'SB' },
+    { value: 'ドコモ', label: 'ドコモ' },
+    { value: 'アハモ', label: 'アハモ' },
+    { value: 'UQモバイル', label: 'UQモバイル' },
+    { value: 'Yモバイル', label: 'Yモバイル' },
+    { value: '聞いてない', label: '聞いてない' },
+    { value: 'その他', label: 'その他' },
 ];
